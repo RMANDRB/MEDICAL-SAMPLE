@@ -1,0 +1,152 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu May 26 10:28:29 2022
+
+@author: Rajendra
+"""
+
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+    <meta charset="UTF-8">
+    <metaname="viewport" content="width=device-width, initial-scale-1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FORM</title>
+    <style>
+    h1{
+    background-color: Light Blue;
+    }
+    h1 {text-align: center;}
+    body {
+    background-image: #808080;
+    }
+    </style>
+    
+</head>
+<body>  
+     <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Medical sample collection process streamline</h1>
+    </div>
+    <form action="{{url_for('predict')}}" method="POST" class="col s12">
+    <h3>
+    <div class="row">
+        <div class="input-field col s4">
+            <label for="first_name"><b>Enter the age of the Patient</b></label>
+            <input name="Patient_Age" min="0" max="120" id="first_name" type="text" placeholder="Age in years" class="validate" required="required" />
+            <br><br>        
+        </div>
+        <div class="input-field col s4">
+            <label for="gender"><b>Select the gender of the patient</b></label>
+            <select id="gender" name="Patient_Gendert">
+            <option value="0">Female</option>
+            <option value="1">Male</option>
+            </select>      
+            <br><br>          
+        </div>
+         <div class="input-field col s4">
+             <label for="test_name"><b>Select the name of the test</b></label>
+             <select id="test_name" name="Test_Name">
+             <option value="0">Acute kidney profile</option>
+             <option value="1">CBC</option>
+             <option value="2">Complete Urinalysis</option>
+             <option value="3">Fasting blood sugar</option>
+             <option value="4">H1N1</option>
+             <option value="5">HbA1c</option>
+             <option value="6">Lipid Profile</option>
+             <option value="7">RTPCR</option>
+             <option value="8">TSH</option>
+             <option value="9">Vitamin D-25Hydroxy</option>
+             </select>
+             <br><br>                         
+         </div>
+         <div class="input-field col s4">
+             <label for="sample_type"><b>Select the type of the sample</b></label>
+             <select id="sample_type" name="Sample">
+             <option value="0">Blood</option>
+             <option value="1">Swab</option>
+             <option value="2">Urine</option>
+             </select>
+             <br><br>            
+         </div>
+          <div class="input-field col s4">
+              <label for="storage"><b>Select the type of sample storage</b></label>
+              <select id="storage" name="Way_Of_Storage_Of_Sample">
+              <option value="0">Advanced</option>
+              <option value="1">Normal</option>
+              </select>
+              <br><br>             
+          </div>
+         <div class="input-field col s4">
+             <label for="booking time"><b>Enter the test Booking Time in HH:MM</b></label>
+             <input name="Test_Booking_Time_HH_MM" min="06.00" max="22:00" id="booking time" type="text" class="validate">
+             <br><br>             
+         </div>
+         <div class="input-field col s4">
+             <label for="collecting time"><b>Enter the scheduled sample collection time in HH:MM</b></label>
+             <input name="Scheduled_Sample_Collection_Time_HH_MM" min="06.00" max="22:00" id="collecting time" type="text" class="validate">
+             <br><br>             
+         </div>
+         <div class="input-field col s4">
+             <label for="cut-off-sch"><b>Select the cut off Schedule</b></label>
+             <select id="cut-off-sch" name="Cut-off Schedule">
+             <option value="0">Daily</option>
+             <option value="1">Sample by 5pm</option>
+             </select>
+             <br><br>             
+         </div>
+          <div class="input-field col s4">
+              <label for="cut-off-time"><b>Enter the Cut off time in HH:MM</b></label>
+              <input name="Cut-off time_HH_MM" id="cut-off-time" min="00:00" max="24:00" type="text" class="validate">
+              <br><br>             
+          </div>
+           <div class="input-field col s4">
+                 <label for="traffic"><b>Select the Traffic Condition</b></label>               
+                 <select id="traffic" name="Traffic_Conditions">
+                 <option value="0">High Traffic</option>
+                 <option value="1">Low Traffic</option>
+                 <option value="2">Medium Traffic</option>
+                 </select>
+               <br><br>             
+           </div>
+           <div class="input-field col s4">
+               <label for="location_agent"><b>Enter the agent location in KM</b></label>
+               <input name="Agent_Location_KM" id="location_agent" type="text" class="validate">
+               <br><br>             
+           </div>
+          <div class="input-field col s4">
+              <label for="time taken to reach pat"><b>Enter the time taken to reach patient in HH:MM</b></label>
+              <input name="Time_Taken_To_Reach_Patient_MM" min="00:01" max="24:00" id="time taken to reach pat" type="text" class="validate">
+              <br><br>             
+          </div>         
+          <div class="input-field col s4">
+              <label for="time taken to collect the sample"><b>Enter the time taken for sample collection in MM</b></label>
+              <input name="Time_For_Sample_Collection_MM" min="1" max="20" id="time taken to collect the sample" type="text" class="validate">
+              <br><br>             
+          </div>
+          <div class="input-field col s4">
+              <label for="location lab"><b>Enter the Lab_Location in KM</b></label>
+              <input name="Lab_Location_KM" id="location lab" type="text" class="validate">
+              <br><br>             
+          </div>
+          <div class="input-field col s4">
+              <label for="time taken (lab)"><b>Enter the time taken to reach the lab in MM</b></label>
+              <input name="Time_Taken_To_Reach_Lab_MM" id="time taken (lab)" type="text" class="validate">
+              <br><br>             
+          </div>
+          <div class="row center">
+          <button type="submit" class="btn-large waves-effect waves-light orange"><b>Whether Sample Reached on TIME?</b></button>
+         </div>
+     </h3>
+     </div>
+    </form>
+        <h3><b>{{output}}</b></h3>
+     
+     <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src=".js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  
+</body>
+</html>
